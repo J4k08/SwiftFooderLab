@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="w4G-8t-23Y" kind="show" id="ffR-1c-aQg"/>
+                                    <segue destination="w4G-8t-23Y" kind="show" identifier="moreInfo" id="ffR-1c-aQg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cP2-6Z-cgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="956" y="917.99100449775119"/>
+            <point key="canvasLocation" x="666" y="877"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nhU-qh-kEI">

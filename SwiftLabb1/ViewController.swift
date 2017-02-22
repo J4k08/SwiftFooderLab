@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var stuff: [Any] = []
-    var search: String = ""
+    var unfilteredJson: [[String:Any]] = []
     @IBOutlet weak var searchField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +18,28 @@ class ViewController: UIViewController {
     }
 
     @IBAction func search(_ sender: Any) {
-        performSegue(withIdentifier: "next", sender: self)
-        search = searchField.text!
-        stuff = searchQuery(searchField: search)
+        
+        searchQuery(searchField: searchField.text!, returnedJsonObjects : recievedArray)
+    }
+    
+    func recievedArray(array : [[String:Any]]){
+        
+        unfilteredJson = array
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "next", sender: self)
+        }
+        
     }
  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vC = segue.destination as! TableViewController
+        vC.sentArray = unfilteredJson
     }
 
 

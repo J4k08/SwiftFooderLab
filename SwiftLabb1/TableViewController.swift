@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewController: UITableViewController    {
     
+    var sentArray : [[String:Any]] = [[:]]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,7 @@ class TableViewController: UITableViewController    {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,7 +34,7 @@ class TableViewController: UITableViewController    {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return
+        return sentArray.count
     }
 
     
@@ -43,10 +42,14 @@ class TableViewController: UITableViewController    {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        //cell.textLabel?.text = cellObjects[indexPath.row]
+        if let name = sentArray[indexPath.row]["name"] as? String {
+            cell.textLabel?.text = name
+        }
+        
         
         return cell
     }
+    
     
 
     /*
@@ -88,11 +91,12 @@ class TableViewController: UITableViewController    {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- 
-        let result = segue.destination as! ResultViewController
         
-        result.recievedString = stringToPass
+        let result = segue.destination as! ResultViewController
+        result.re
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

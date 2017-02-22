@@ -8,10 +8,7 @@
 
 import Foundation
 
-
-func searchQuery(searchField : String)-> [Any] {
-    
-    var stuff : [Any] = []
+func searchQuery(searchField : String, returnedJsonObjects : @escaping ([[String:Any]]) -> Void) {
     
     let urlString = "http://matapi.se/foodstuff?query=\(searchField)&format=json&pretty=1"
     if let safeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
@@ -28,15 +25,10 @@ func searchQuery(searchField : String)-> [Any] {
                     
                     if let foods = try JSONSerialization.jsonObject(with: actualData, options: jsonOptions) as? [[String: Any]]  {
                         
-                        stuff.append(foods)
+                        DispatchQueue.main.async {
                             
-                            //if let text = first["Name"] as? String {
-                                
-                                DispatchQueue.main.async {
-                                    
-                                }
-                            //}
-
+                            returnedJsonObjects(foods)
+                        }
                         
                     }else {
                         NSLog("Failed to cast from json")
@@ -55,6 +47,4 @@ func searchQuery(searchField : String)-> [Any] {
     } else {
         NSLog ("Failed to create url :(")
     }
-    return stuff
-    
 }
