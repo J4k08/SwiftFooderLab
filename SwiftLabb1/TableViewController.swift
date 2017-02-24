@@ -11,7 +11,8 @@ import UIKit
 class TableViewController: UITableViewController    {
     
     var sentArray : [[String:Any]] = [[:]]
-    
+    var valueToPass : [String:Any] = [:]
+    var nutritionData : [String:Any] = [:]
     
 
     override func viewDidLoad() {
@@ -40,12 +41,17 @@ class TableViewController: UITableViewController    {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCustomTableViewCell
         
         if let name = sentArray[indexPath.row]["name"] as? String {
-            cell.textLabel?.text = name
+            cell.nameLabel.text = name
         }
         
+        if let calorie = sentArray[indexPath.row]["number"] as? Int {
+            cell.calorieLabel.text = "\(calorie)"
+            
+        }
+    
         
         return cell
     }
@@ -87,15 +93,22 @@ class TableViewController: UITableViewController    {
     }
     */
 
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let result = segue.destination as! ResultViewController
-        result.re
+        if let cell = sender as? MyCustomTableViewCell{
+            let clickedCell = segue.destination as! ResultViewController
+            clickedCell.recievedString = cell.nameLabel.text
+            clickedCell.numberOfWare = Int(cell.calorieLabel.text!)
+            
+        }
+        
+        //let result = segue.destination as! ResultViewController
+        //result.re
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

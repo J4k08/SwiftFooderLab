@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D61A4B831E5B2A6A00F135FB /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A4B821E5B2A6A00F135FB /* File.swift */; };
+		D61A4BA91E5F028300F135FB /* MyCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61A4BA81E5F028300F135FB /* MyCustomTableViewCell.swift */; };
 		D6680F521E59B53D00F24FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6680F511E59B53D00F24FDB /* AppDelegate.swift */; };
 		D6680F541E59B53D00F24FDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6680F531E59B53D00F24FDB /* ViewController.swift */; };
 		D6680F571E59B53D00F24FDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6680F551E59B53D00F24FDB /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		D61A4B821E5B2A6A00F135FB /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		D61A4BA81E5F028300F135FB /* MyCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomTableViewCell.swift; sourceTree = "<group>"; };
 		D6680F4E1E59B53D00F24FDB /* SwiftLabb1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLabb1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6680F511E59B53D00F24FDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6680F531E59B53D00F24FDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				D6680F631E59CE3800F24FDB /* TableViewController.swift */,
 				D6680F651E59D4E300F24FDB /* ResultViewController.swift */,
 				D61A4B821E5B2A6A00F135FB /* File.swift */,
+				D61A4BA81E5F028300F135FB /* MyCustomTableViewCell.swift */,
 			);
 			path = SwiftLabb1;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				D61A4B831E5B2A6A00F135FB /* File.swift in Sources */,
 				D6680F541E59B53D00F24FDB /* ViewController.swift in Sources */,
+				D61A4BA91E5F028300F135FB /* MyCustomTableViewCell.swift in Sources */,
 				D6680F641E59CE3800F24FDB /* TableViewController.swift in Sources */,
 				D6680F521E59B53D00F24FDB /* AppDelegate.swift in Sources */,
 				D6680F661E59D4E300F24FDB /* ResultViewController.swift in Sources */,

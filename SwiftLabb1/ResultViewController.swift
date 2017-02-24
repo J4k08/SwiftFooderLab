@@ -10,20 +10,56 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var calories: UILabel!
     @IBOutlet weak var result: UILabel!
+    @IBOutlet weak var protein: UILabel!
+    @IBOutlet weak var fat: UILabel!
+    @IBOutlet weak var carbs: UILabel!
+    
     var recievedString : String?
+    var numberOfWare : Int?
+    var nutritionData : [String : Any] = [:]
+    var nutrientValues : [String: Float] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        searchQueryForNutrition(number: numberOfWare!, gotNutritionData: recievedData)
+        
         result.text = recievedString
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        
     }
     
+    func recievedData(dictionary : [String:Any]) {
+        
+        
+        nutritionData = dictionary
+        
+        nutrientValues = (nutritionData["nutrientValues"] as? [String:Float])!
+        
+        setValues(dictionay: nutrientValues)
+    }
+    
+    func setValues(dictionay : [String:Float]) {
+        
+        if let energyKcalValue = nutrientValues["energyKcal"] {
+            calories.text = "Kalorier: \(energyKcalValue)"
+        }
+        if let proteinValue = nutrientValues["protein"] {
+            protein.text = "Protein: \(proteinValue)"
+        }
+        if let fatValue = nutrientValues["protein"] {
+            fat.text = "Fett: \(fatValue)"
+        }
+        if let carbsValue = nutrientValues["fat"] {
+            carbs.text = "Kalorier: \(carbsValue)"
+        }
+    }
+
 
     /*
     // MARK: - Navigation
