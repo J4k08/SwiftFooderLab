@@ -12,6 +12,7 @@ class MyCustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var calorieLabel: UILabel!
+    var numberOfRow : Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()

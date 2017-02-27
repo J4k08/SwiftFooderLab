@@ -13,20 +13,22 @@ class TableViewController: UITableViewController    {
     var sentArray : [[String:Any]] = [[:]]
     var valueToPass : [String:Any] = [:]
     var nutritionData : [String:Any] = [:]
+    var kcalValues : [String:Any] = [:]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let tableBackground = UIImage(named: "tomato")
+        let imageView = UIImageView(image: tableBackground)
+        self.tableView.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
+        
+        /*let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = imageView.bounds
+        imageView.addSubview(blurView)*/
     }
-
-   
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -47,13 +49,35 @@ class TableViewController: UITableViewController    {
             cell.nameLabel.text = name
         }
         
-        if let calorie = sentArray[indexPath.row]["number"] as? Int {
-            cell.calorieLabel.text = "\(calorie)"
+        if let number = self.sentArray[indexPath.row]["number"] as? Int {
             
+            
+            cell.numberOfRow = number
+            
+            searchQueryForCalories(number: number, gotNutritionData: recievedData)
+            
+            if(number == self.kcalValues["number"] as? Int) {
+                
+                if let calory = kcalValues["energyKcal"] as? Int {
+                    cell.calorieLabel.text = "\(calory) Kal"
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    tableView.reloadData()
+                }
         }
-    
+        }
         
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        cell.backgroundColor = .clear
         return cell
+    }
+    
+    func recievedData(dictionary : [String:Any]){
+        
+        kcalValues = dictionary["nutrientValues"] as! [String : Any]
+        kcalValues["number"] = dictionary["number"]
     }
     
     
@@ -103,7 +127,8 @@ class TableViewController: UITableViewController    {
         if let cell = sender as? MyCustomTableViewCell{
             let clickedCell = segue.destination as! ResultViewController
             clickedCell.recievedString = cell.nameLabel.text
-            clickedCell.numberOfWare = Int(cell.calorieLabel.text!)
+            
+            clickedCell.numberOfWare = cell.numberOfRow
             
         }
         

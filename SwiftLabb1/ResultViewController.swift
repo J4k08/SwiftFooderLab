@@ -24,18 +24,13 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
         searchQueryForNutrition(number: numberOfWare!, gotNutritionData: recievedData)
         
         result.text = recievedString
         
-        
-        
     }
     
     func recievedData(dictionary : [String:Any]) {
-        
         
         nutritionData = dictionary
         
@@ -52,11 +47,11 @@ class ResultViewController: UIViewController {
         if let proteinValue = nutrientValues["protein"] {
             protein.text = "Protein: \(proteinValue)"
         }
-        if let fatValue = nutrientValues["protein"] {
+        if let fatValue = nutrientValues["fat"] {
             fat.text = "Fett: \(fatValue)"
         }
-        if let carbsValue = nutrientValues["fat"] {
-            carbs.text = "Kalorier: \(carbsValue)"
+        if let carbsValue = nutrientValues["carbohydrates"] {
+            carbs.text = "Kolhydrater: \(carbsValue)"
         }
     }
 
