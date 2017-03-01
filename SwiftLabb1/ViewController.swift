@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        
         searchButton.layer.borderWidth = 1.0
         searchButton.layer.cornerRadius = 2.0
         searchButton.layer.borderColor = color.cgColor

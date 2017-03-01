@@ -14,6 +14,7 @@ class TableViewController: UITableViewController    {
     var valueToPass : [String:Any] = [:]
     var nutritionData : [String:Any] = [:]
     var kcalValues : [String:Any] = [:]
+    var kcal : [Int: Float] = [:]
     
 
     override func viewDidLoad() {
@@ -39,10 +40,10 @@ class TableViewController: UITableViewController    {
         // #warning Incomplete implementation, return the number of rows
         return sentArray.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCustomTableViewCell
         
         if let name = sentArray[indexPath.row]["name"] as? String {
@@ -51,22 +52,15 @@ class TableViewController: UITableViewController    {
         
         if let number = self.sentArray[indexPath.row]["number"] as? Int {
             
-            
             cell.numberOfRow = number
-            
-            searchQueryForCalories(number: number, gotNutritionData: recievedData)
-            
-            if(number == self.kcalValues["number"] as? Int) {
                 
-                if let calory = kcalValues["energyKcal"] as? Int {
-                    cell.calorieLabel.text = "\(calory) Kal"
+                if let kcal = self.kcal[number] {
+                    cell.calorieLabel.text = "\(kcal) kal"
+               
+                } else {
+                    searchQueryForCalories(number: number, gotNutritionData: recievedData)
                 }
-                
-            } else {
-                DispatchQueue.main.async {
-                    tableView.reloadData()
-                }
-        }
+            
         }
         
         cell.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -77,7 +71,13 @@ class TableViewController: UITableViewController    {
     func recievedData(dictionary : [String:Any]){
         
         kcalValues = dictionary["nutrientValues"] as! [String : Any]
-        kcalValues["number"] = dictionary["number"]
+       
+        kcal[(dictionary["number"] as? Int)!] = kcalValues["energyKcal"] as? Float!
+        
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     

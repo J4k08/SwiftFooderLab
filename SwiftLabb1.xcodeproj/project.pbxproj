@@ -16,6 +16,7 @@
 		D6680F5C1E59B53D00F24FDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6680F5A1E59B53D00F24FDB /* LaunchScreen.storyboard */; };
 		D6680F641E59CE3800F24FDB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6680F631E59CE3800F24FDB /* TableViewController.swift */; };
 		D6680F661E59D4E300F24FDB /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6680F651E59D4E300F24FDB /* ResultViewController.swift */; };
+		D6B6A12A1E6486DF009D7323 /* AnimationUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B6A1291E6486DF009D7323 /* AnimationUiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D6680F5D1E59B53D00F24FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6680F631E59CE3800F24FDB /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D6680F651E59D4E300F24FDB /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		D6B6A1291E6486DF009D7323 /* AnimationUiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationUiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				D6680F651E59D4E300F24FDB /* ResultViewController.swift */,
 				D61A4B821E5B2A6A00F135FB /* File.swift */,
 				D61A4BA81E5F028300F135FB /* MyCustomTableViewCell.swift */,
+				D6B6A1291E6486DF009D7323 /* AnimationUiViewController.swift */,
 			);
 			path = SwiftLabb1;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B6A12A1E6486DF009D7323 /* AnimationUiViewController.swift in Sources */,
 				D61A4B831E5B2A6A00F135FB /* File.swift in Sources */,
 				D6680F541E59B53D00F24FDB /* ViewController.swift in Sources */,
 				D61A4BA91E5F028300F135FB /* MyCustomTableViewCell.swift in Sources */,

@@ -11,11 +11,11 @@ import UIKit
 class ResultViewController: UIViewController {
 
     @IBOutlet weak var calories: UILabel!
-    @IBOutlet weak var result: UILabel!
     @IBOutlet weak var protein: UILabel!
     @IBOutlet weak var fat: UILabel!
     @IBOutlet weak var carbs: UILabel!
     
+    @IBOutlet weak var nameOfWareTitle: UINavigationItem!
     var recievedString : String?
     var numberOfWare : Int?
     var nutritionData : [String : Any] = [:]
@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
 
         searchQueryForNutrition(number: numberOfWare!, gotNutritionData: recievedData)
         
-        result.text = recievedString
+        nameOfWareTitle.title = recievedString
         
     }
     
@@ -53,17 +53,35 @@ class ResultViewController: UIViewController {
         if let carbsValue = nutrientValues["carbohydrates"] {
             carbs.text = "Kolhydrater: \(carbsValue)"
         }
+        
+        if(calculatedNutrientValue() > 20) {
+            print(calculatedNutrientValue())
+            
+        }
+         else if(calculatedNutrientValue() > 40) {
+            print(calculatedNutrientValue())
+        }
+        else if(calculatedNutrientValue() > 60) {
+            print(calculatedNutrientValue())
+        }
+        else if(calculatedNutrientValue() > 80) {
+            print(calculatedNutrientValue())
+        }
+        else if(calculatedNutrientValue() > 120) {
+            print(calculatedNutrientValue())
+        }
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func calculatedNutrientValue() -> Double{
+        
+        
+        let fatValue = nutrientValues["fat"]
+        let carbsValue = nutrientValues["carbohydrates"]
+        
+        let totalNutritionValue = Double(fatValue!) + Double(carbsValue!)
+        
+        return totalNutritionValue
     }
-    */
 
 }
