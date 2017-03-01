@@ -14,8 +14,9 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var protein: UILabel!
     @IBOutlet weak var fat: UILabel!
     @IBOutlet weak var carbs: UILabel!
-    
+    @IBOutlet weak var totalHealthValue: UILabel!
     @IBOutlet weak var nameOfWareTitle: UINavigationItem!
+   
     var recievedString : String?
     var numberOfWare : Int?
     var nutritionData : [String : Any] = [:]
@@ -56,19 +57,24 @@ class ResultViewController: UIViewController {
         
         if(calculatedNutrientValue() > 20) {
             print(calculatedNutrientValue())
+            totalHealthValue.text = "Nyttighet: 5/5"
             
         }
          else if(calculatedNutrientValue() > 40) {
             print(calculatedNutrientValue())
+            totalHealthValue.text = "Nyttighet: 4/5"
         }
         else if(calculatedNutrientValue() > 60) {
             print(calculatedNutrientValue())
+            totalHealthValue.text = "Nyttighet: 3/5"
         }
         else if(calculatedNutrientValue() > 80) {
             print(calculatedNutrientValue())
+            totalHealthValue.text = "Nyttighet: 2/5"
         }
         else if(calculatedNutrientValue() > 120) {
             print(calculatedNutrientValue())
+            totalHealthValue.text = "Nyttighet: 1/5"
         }
         
     }
