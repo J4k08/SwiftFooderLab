@@ -73,7 +73,7 @@ class AnimationUiViewController: UIViewController {
         gravity = UIGravityBehavior(items: [M,A,K, Ö])
         dynamicAnimator.addBehavior(gravity)
         
-        collision = UICollisionBehavior(items: [M,A,T,S,Ö,K])
+        collision = UICollisionBehavior(items: [M,A,S,Ö,K])
         collision.translatesReferenceBoundsIntoBoundary = true
         dynamicAnimator.addBehavior(collision)
         

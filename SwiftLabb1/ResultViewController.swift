@@ -16,20 +16,43 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var carbs: UILabel!
     @IBOutlet weak var totalHealthValue: UILabel!
     @IBOutlet weak var nameOfWareTitle: UINavigationItem!
+    @IBOutlet weak var saveButton: UIButton!
    
     var recievedString : String?
     var numberOfWare : Int?
     var nutritionData : [String : Any] = [:]
     var nutrientValues : [String: Float] = [:]
+    var userData : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveButton.layer.borderWidth = 1.0
+        saveButton.layer.cornerRadius = 2.0
+        saveButton.layer.borderColor = UIColor.black.cgColor
+        saveButton.backgroundColor = .clear
 
         searchQueryForNutrition(number: numberOfWare!, gotNutritionData: recievedData)
         
         nameOfWareTitle.title = recievedString
         
+        print(numberOfWare!)
+        
     }
+    @IBAction func saveToFavorite(_ sender: Any) {
+        
+        if let array = UserDefaults.standard.array(forKey: "savedWares") as? [Int] {
+            
+            if(array.contains(numberOfWare!)) {
+                print("already contains number")
+            } else {
+                UserDefaults.standard.set(numberOfWare, forKey: "savedWares")
+            }
+            
+        }
+        
+    }
+    
     
     func recievedData(dictionary : [String:Any]) {
         
@@ -55,24 +78,24 @@ class ResultViewController: UIViewController {
             carbs.text = "Kolhydrater: \(carbsValue)"
         }
         
-        if(calculatedNutrientValue() > 20) {
+        if(calculatedNutrientValue() < 20) {
             print(calculatedNutrientValue())
             totalHealthValue.text = "Nyttighet: 5/5"
             
         }
-         else if(calculatedNutrientValue() > 40) {
+         else if(calculatedNutrientValue() < 40) {
             print(calculatedNutrientValue())
             totalHealthValue.text = "Nyttighet: 4/5"
         }
-        else if(calculatedNutrientValue() > 60) {
+        else if(calculatedNutrientValue() < 60) {
             print(calculatedNutrientValue())
             totalHealthValue.text = "Nyttighet: 3/5"
         }
-        else if(calculatedNutrientValue() > 80) {
+        else if(calculatedNutrientValue() < 80) {
             print(calculatedNutrientValue())
             totalHealthValue.text = "Nyttighet: 2/5"
         }
-        else if(calculatedNutrientValue() > 120) {
+        else if(calculatedNutrientValue() < 120) {
             print(calculatedNutrientValue())
             totalHealthValue.text = "Nyttighet: 1/5"
         }
