@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +66,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbc-A6-VPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="-240"/>
+            <point key="canvasLocation" x="1599" y="-240"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -90,19 +88,6 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-PQ-Jlb">
-                                <rect key="frame" x="233" y="580" width="121" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="121" id="lxe-8n-rgE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Visa favoriter">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickedFavorites:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfU-Md-5tD"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-TJ-Vs5">
                                 <rect key="frame" x="60" y="580" width="44" height="30"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -125,16 +110,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="Nrr-vH-vaD" secondAttribute="bottom" constant="-8" id="3l4-Wa-2mR"/>
-                            <constraint firstItem="LsO-TJ-Vs5" firstAttribute="baseline" secondItem="gCy-PQ-Jlb" secondAttribute="firstBaseline" id="6eT-08-byV"/>
                             <constraint firstItem="Nrr-vH-vaD" firstAttribute="centerX" secondItem="eps-5C-Hjs" secondAttribute="centerX" id="9OP-ju-yuo"/>
-                            <constraint firstItem="gCy-PQ-Jlb" firstAttribute="baseline" secondItem="LsO-TJ-Vs5" secondAttribute="firstBaseline" id="Axo-Ag-YjK"/>
-                            <constraint firstItem="eps-5C-Hjs" firstAttribute="trailing" secondItem="gCy-PQ-Jlb" secondAttribute="trailing" id="Bgr-Qh-5qT"/>
                             <constraint firstItem="eps-5C-Hjs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Dea-8t-jg3"/>
                             <constraint firstItem="LsO-TJ-Vs5" firstAttribute="top" secondItem="eps-5C-Hjs" secondAttribute="bottom" constant="8" symbolic="YES" id="FVV-4a-1iw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LsO-TJ-Vs5" secondAttribute="bottom" constant="126" id="PPt-wr-1RM"/>
                             <constraint firstItem="Nrr-vH-vaD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TWr-3s-Tk4"/>
                             <constraint firstAttribute="trailing" secondItem="Nrr-vH-vaD" secondAttribute="trailing" id="Ttv-rY-fOk"/>
-                            <constraint firstItem="LsO-TJ-Vs5" firstAttribute="top" secondItem="gCy-PQ-Jlb" secondAttribute="top" id="ZBz-dm-3OR"/>
                             <constraint firstItem="Nrr-vH-vaD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bsX-Mx-vso"/>
                             <constraint firstItem="eps-5C-Hjs" firstAttribute="leading" secondItem="LsO-TJ-Vs5" secondAttribute="leading" id="qF3-uB-oTx"/>
                         </constraints>
@@ -144,7 +125,6 @@
                     <connections>
                         <outlet property="searchButton" destination="LsO-TJ-Vs5" id="PXp-yl-sNG"/>
                         <outlet property="searchField" destination="eps-5C-Hjs" id="TnZ-ro-Con"/>
-                        <outlet property="showFavorites" destination="gCy-PQ-Jlb" id="khv-Xf-vib"/>
                         <segue destination="L8o-Wx-g9y" kind="show" identifier="next" id="bhi-ho-p0j"/>
                     </connections>
                 </viewController>
@@ -324,19 +304,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukP-V7-nTv">
-                                <rect key="frame" x="53" y="234" width="86" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="mae-e0-ZxX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Spara vara">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveToFavorite:" destination="w4G-8t-23Y" eventType="touchUpInside" id="uWQ-I9-OWB"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -347,12 +314,10 @@
                             <constraint firstItem="knS-JK-jXE" firstAttribute="trailing" secondItem="Rze-h9-j05" secondAttribute="trailing" id="5Vn-1Y-uQq"/>
                             <constraint firstItem="LbG-Oh-WDG" firstAttribute="top" secondItem="knS-JK-jXE" secondAttribute="bottom" constant="20" id="7dP-Jh-Kyv"/>
                             <constraint firstItem="Rze-h9-j05" firstAttribute="leading" secondItem="LbG-Oh-WDG" secondAttribute="leading" id="9Vo-75-RSO"/>
-                            <constraint firstItem="ukP-V7-nTv" firstAttribute="top" secondItem="5be-bY-tzC" secondAttribute="bottom" constant="24" id="JMc-9R-kwg"/>
                             <constraint firstItem="LbG-Oh-WDG" firstAttribute="trailing" secondItem="eLz-lX-Lqs" secondAttribute="trailing" id="P68-iQ-iIr"/>
                             <constraint firstItem="knS-JK-jXE" firstAttribute="leading" secondItem="1tz-fQ-ntm" secondAttribute="leadingMargin" constant="33" id="SzG-76-ome"/>
                             <constraint firstItem="knS-JK-jXE" firstAttribute="leading" secondItem="Rze-h9-j05" secondAttribute="leading" id="UBH-2J-xi6"/>
                             <constraint firstItem="m4b-oP-KL1" firstAttribute="bottom" secondItem="Zm2-Zb-B1a" secondAttribute="top" id="Y8x-by-rUM"/>
-                            <constraint firstItem="5be-bY-tzC" firstAttribute="leading" secondItem="ukP-V7-nTv" secondAttribute="leading" id="biC-I5-WBH"/>
                             <constraint firstItem="eLz-lX-Lqs" firstAttribute="top" secondItem="Rze-h9-j05" secondAttribute="bottom" constant="20" id="fF0-hl-IUd"/>
                             <constraint firstItem="Rze-h9-j05" firstAttribute="trailing" secondItem="LbG-Oh-WDG" secondAttribute="trailing" id="jqc-br-zIX"/>
                             <constraint firstItem="eLz-lX-Lqs" firstAttribute="leading" secondItem="5be-bY-tzC" secondAttribute="leading" id="kC7-cv-IIT"/>
@@ -368,13 +333,12 @@
                         <outlet property="fat" destination="LbG-Oh-WDG" id="TQv-91-7O9"/>
                         <outlet property="nameOfWareTitle" destination="G1p-7x-xCH" id="KHy-1e-is2"/>
                         <outlet property="protein" destination="Rze-h9-j05" id="HtA-3o-SYC"/>
-                        <outlet property="saveButton" destination="ukP-V7-nTv" id="gfX-Vj-iTr"/>
                         <outlet property="totalHealthValue" destination="5be-bY-tzC" id="iLD-K3-cNW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cP2-6Z-cgf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728.985507246377" y="-240.48913043478262"/>
+            <point key="canvasLocation" x="2364" y="-240"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rIV-MK-opw">

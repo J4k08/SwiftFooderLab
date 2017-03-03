@@ -16,40 +16,18 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var carbs: UILabel!
     @IBOutlet weak var totalHealthValue: UILabel!
     @IBOutlet weak var nameOfWareTitle: UINavigationItem!
-    @IBOutlet weak var saveButton: UIButton!
    
     var recievedString : String?
     var numberOfWare : Int?
     var nutritionData : [String : Any] = [:]
     var nutrientValues : [String: Float] = [:]
-    var userData : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        saveButton.layer.borderWidth = 1.0
-        saveButton.layer.cornerRadius = 2.0
-        saveButton.layer.borderColor = UIColor.black.cgColor
-        saveButton.backgroundColor = .clear
 
         searchQueryForNutrition(number: numberOfWare!, gotNutritionData: recievedData)
         
         nameOfWareTitle.title = recievedString
-        
-        print(numberOfWare!)
-        
-    }
-    @IBAction func saveToFavorite(_ sender: Any) {
-        
-        if let array = UserDefaults.standard.array(forKey: "savedWares") as? [Int] {
-            
-            if(array.contains(numberOfWare!)) {
-                print("already contains number")
-            } else {
-                UserDefaults.standard.set(numberOfWare, forKey: "savedWares")
-            }
-            
-        }
         
     }
     

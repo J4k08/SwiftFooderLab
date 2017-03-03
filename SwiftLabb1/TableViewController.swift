@@ -10,13 +10,11 @@ import UIKit
 
 class TableViewController: UITableViewController    {
     
-    var sentArray : [[String:Any]] = [[:]]
+    var jsonArray : [[String:Any]] = [[:]]
     var valueToPass : [String:Any] = [:]
     var nutritionData : [String:Any] = [:]
     var kcalValues : [String:Any] = [:]
     var kcal : [Int: Float] = [:]
-    
-    var showFavorites : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +23,6 @@ class TableViewController: UITableViewController    {
         let imageView = UIImageView(image: tableBackground)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
-        
-        /*let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = imageView.bounds
-        imageView.addSubview(blurView)*/
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +32,7 @@ class TableViewController: UITableViewController    {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sentArray.count
+        return jsonArray.count
     }
     
     
@@ -47,11 +40,11 @@ class TableViewController: UITableViewController    {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MyCustomTableViewCell
         
-        if let name = sentArray[indexPath.row]["name"] as? String {
+        if let name = jsonArray[indexPath.row]["name"] as? String {
             cell.nameLabel.text = name
         }
         
-        if let number = self.sentArray[indexPath.row]["number"] as? Int {
+        if let number = self.jsonArray[indexPath.row]["number"] as? Int {
             
             cell.numberOfRow = number
                 
@@ -75,7 +68,6 @@ class TableViewController: UITableViewController    {
        
         kcal[(dictionary["number"] as? Int)!] = kcalValues["energyKcal"] as? Float!
         
-        
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -90,13 +82,6 @@ class TableViewController: UITableViewController    {
             clickedCell.numberOfWare = cell.numberOfRow
             
         }
-        
-        //let result = segue.destination as! ResultViewController
-        //result.re
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    
 
 }
