@@ -36,9 +36,18 @@ class ViewController: UIViewController {
     func recievedArray(array : [[String:Any]]){
         
         unfilteredJson = array
-        
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "next", sender: self)
+        if(unfilteredJson.count == 0) {
+            
+            let alertController = UIAlertController(title: "", message:
+                "Sökningen gav inget! :(", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Ok!", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }else {
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "next", sender: self)
+            }
         }
         
     }

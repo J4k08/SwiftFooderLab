@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  jsonHelper.swift
 //  SwiftLabb1
 //
 //  Created by Jakob Haglöf on 2017-02-20.

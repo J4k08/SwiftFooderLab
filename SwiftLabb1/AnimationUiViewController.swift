@@ -43,9 +43,6 @@ class AnimationUiViewController: UIViewController {
         T.center = CGPoint(x: -10, y: 250)
         
         topPartIntro()
-        
-
-        // Do any additional setup after loading the view.
     }
     
     func topPartIntro() {
