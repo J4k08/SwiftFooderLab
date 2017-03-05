@@ -42,10 +42,6 @@ class ViewController: UIViewController {
         }
         
     }
- 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vC = segue.destination as! TableViewController
