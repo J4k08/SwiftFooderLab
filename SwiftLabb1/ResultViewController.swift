@@ -90,5 +90,7 @@ class ResultViewController: UIViewController {
         
         return totalNutritionValue
     }
-
+    
 }
+
+
